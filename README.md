@@ -1,1 +1,5 @@
 # keras_ssd_512_pkl_create
+
+kerasのSSD512用のpklを作成するプログラム
+
+＊正しく作れているかわからないが使用はできている
