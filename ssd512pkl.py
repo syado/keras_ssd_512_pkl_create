@@ -4,18 +4,20 @@ import pdb
 
 img_width, img_height = 512, 512
 box_configs = [
-    {'layer_width': 64, 'layer_height': 64, 'num_prior': 3, 'min_size':  30.0,
-     'max_size': None, 'aspect_ratios': [1.0, 2.0, 1/2.0]},
-    {'layer_width': 32, 'layer_height': 32, 'num_prior': 6, 'min_size':  60.0,
-     'max_size': 114.0, 'aspect_ratios': [1.0, 1.0, 2.0, 1/2.0, 3.0, 1/3.0]},
-    {'layer_width': 16, 'layer_height': 16, 'num_prior': 6, 'min_size': 114.0,
-     'max_size': 168.0, 'aspect_ratios': [1.0, 1.0, 2.0, 1/2.0, 3.0, 1/3.0]},
-    {'layer_width':  8, 'layer_height':  8, 'num_prior': 6, 'min_size': 168.0,
-     'max_size': 322.0, 'aspect_ratios': [1.0, 1.0, 2.0, 1/2.0, 3.0, 1/3.0]},
-    {'layer_width':  4, 'layer_height':  4, 'num_prior': 6, 'min_size': 322.0,
-     'max_size': 400.0, 'aspect_ratios': [1.0, 1.0, 2.0, 1/2.0, 3.0, 1/3.0]},
-    {'layer_width':  1, 'layer_height':  1, 'num_prior': 6, 'min_size': 400.0,
-     'max_size': 550.0, 'aspect_ratios': [1.0, 1.0, 2.0, 1/2.0, 3.0, 1/3.0]},
+    {'layer_width': 64, 'layer_height': 64, 'num_prior': 4, 'min_size': 35.84,
+     'max_size': 76.8, 'aspect_ratios': [1.0, 1.0, 2.0, 1/2.0]},
+    {'layer_width': 32, 'layer_height': 32, 'num_prior': 6, 'min_size': 76.8,
+     'max_size': 153.6, 'aspect_ratios':  [1.0, 1.0, 2.0, 1/2.0, 3.0, 1/3.0]},
+    {'layer_width': 16, 'layer_height': 16, 'num_prior': 6, 'min_size': 153.6,
+     'max_size': 230.4, 'aspect_ratios':  [1.0, 1.0, 2.0, 1/2.0, 3.0, 1/3.0]},
+    {'layer_width': 8, 'layer_height': 8, 'num_prior': 6, 'min_size': 230.4,
+     'max_size': 307.2, 'aspect_ratios':  [1.0, 1.0, 2.0, 1/2.0, 3.0, 1/3.0]},
+    {'layer_width': 4, 'layer_height': 4, 'num_prior': 6, 'min_size': 307.2,
+     'max_size': 384.0, 'aspect_ratios':  [1.0, 1.0, 2.0, 1/2.0, 3.0, 1/3.0]},
+    {'layer_width': 2, 'layer_height': 2, 'num_prior': 4, 'min_size': 384.0,
+     'max_size': 460.8, 'aspect_ratios': [1.0, 1.0, 2.0, 1/2.0]},
+    {'layer_width': 1, 'layer_height': 1, 'num_prior': 4, 'min_size': 460.8,
+     'max_size': 537.6, 'aspect_ratios': [1.0, 1.0, 2.0, 1/2.0]}
 ]
 
 variance = [0.1, 0.1, 0.2, 0.2]
@@ -77,5 +79,6 @@ def create_prior_box():
 
 if __name__ == "__main__":
     boxes_paras = create_prior_box()
-    with open('prior_boxes_ssd512.pkl', mode='wb') as f:
-        pickle.dump(boxes_paras, f)
+    with open('prior_boxes_ssd512.pkl', 'wb') as f:
+        pickle.dump(boxes_paras, f, protocol=2)
+
